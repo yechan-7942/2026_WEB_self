@@ -3,16 +3,19 @@ package org.example.self.domain;
 public class Book {
 
     private String id;
-    private String name;
+    private String title;
+    private String author;
     private int price;
     private String ct;//카테고리
+
 
     public Book(){
 
     }
-    public Book(String id ,String name, int price, String ct){
+    public Book(String id ,String title, String author, int price, String ct){
         this.id = id;
-        this.name = name;
+        this.title = title;
+        this.author = author;
         this.price = price;
         this.ct = ct;
     }
@@ -21,8 +24,12 @@ public class Book {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 
     public int getPrice() {
@@ -37,8 +44,12 @@ public class Book {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public void setPrice(int price) {
