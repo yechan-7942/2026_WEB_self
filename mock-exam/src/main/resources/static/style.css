@@ -1,0 +1,13 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f5f6fa; color: #202737; font-family: sans-serif; }
+main { max-width: 800px; margin: 40px auto; padding: 24px; }
+section, nav { margin-top: 20px; padding: 20px; background: white; border-radius: 12px; }
+form, .summary { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+input, button { padding: 10px; border: 1px solid #c8cede; border-radius: 6px; font: inherit; }
+button { cursor: pointer; background: #254cbd; color: white; }
+ul { padding: 0; list-style: none; }
+li { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid #eee; }
+a { margin-right: 16px; color: #254cbd; }
+a[aria-current="page"] { font-weight: bold; }
+.error { color: #ad2137; }
+/* TODO-14: 읽음(.read)과 안 읽음(.unread)을 구분하는 색상/배지 스타일을 작성하세요. */

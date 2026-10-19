@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>나의 독서 기록</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<main>
+    <h1>나의 독서 기록</h1>
+    <p>읽고 싶은 책을 등록하고 독서 상태를 관리하세요.</p>
+
+    <section aria-labelledby="register-title">
+        <h2 id="register-title">도서 등록</h2>
+        <p class="error" th:if="${error}" th:text="${error}"></p>
+        <form method="post" th:action="@{/books}">
+            <!-- TODO-01: 제목(title), 저자(author) 입력 요소를 추가하세요.
+                 label과 id를 연결하고 name, required 속성을 지정하세요. -->
+            <button type="submit">등록</button>
+        </form>
+    </section>
+
+    <section aria-label="독서 통계" class="summary">
+        <span>전체 <strong th:text="${totalCount}">0</strong>권</span>
+        <span>읽음 <strong th:text="${readCount}">0</strong>권</span>
+        <span>안 읽음 <strong th:text="${unreadCount}">0</strong>권</span>
+    </section>
+
+    <nav aria-label="상태 필터">
+        <a th:href="@{/books(status='all')}" th:attr="aria-current=${status == 'all' ? 'page' : null}">전체</a>
+        <!-- TODO-09: read, unread 쿼리 파라미터를 보내는 필터 링크를 추가하세요. -->
+    </nav>
+
+    <section aria-labelledby="list-title">
+        <h2 id="list-title">도서 목록</h2>
+        <p th:if="${#lists.isEmpty(books)}">표시할 도서가 없습니다.</p>
+        <ul>
+            <li th:each="book : ${books}">
+                <div>
+                    <strong th:text="${book.title}">제목</strong>
+                    <span th:text="${book.author}">저자</span>
+                    <!-- TODO-13: book.read에 따라 읽음/안 읽음 문구와 CSS 클래스를 표시하세요. -->
+                </div>
+                <form method="post" th:action="@{/books/{id}/toggle(id=${book.id})}">
+                    <button type="submit">상태 변경</button>
+                </form>
+            </li>
+        </ul>
+    </section>
+</main>
+</body>
+</html>
