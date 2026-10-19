@@ -22,6 +22,7 @@ public class MemoryBookRepository implements BookRepository {
     @Override
     public Book save(Book book) {
         // TODO-04: books에 도서를 저장하세요. key는 도서 ID입니다.
+        books.put(book.getId(),book);
         return book;
     }
 

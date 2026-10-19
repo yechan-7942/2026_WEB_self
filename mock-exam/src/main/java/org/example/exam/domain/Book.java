@@ -18,6 +18,7 @@ public class Book {
     public String getAuthor() { return author; }
     public boolean isRead() { return read; }
 
+
     public void toggleRead() {
         // TODO-06: 현재 읽음 상태를 반대로 변경하세요.
     }
